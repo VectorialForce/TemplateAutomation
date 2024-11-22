@@ -1,3 +1,4 @@
+
 @Navigation
 Feature: Cuando la barra de navegacion me permite navegar
     Para ver las paginas de FRT

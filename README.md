@@ -1,7 +1,14 @@
 # Detalles del proyecto 
 
 Dado que crear una automatizacion de cero es un proceso laborioso, decidí armar un 
-template funcional para poder automatizar cualquier pagina usando únicamente este repositorio
+template funcional para poder automatizar cualquier pagina usando únicamente este repositorio.
+
+Este repositorio requiere gradle para ejecutarse, por lo que si no lo tenes en tu equipo vas a 
+tener que ejecutar desde la consola 
+
+```bash
+./gradlew build
+```
 
 ## Tecnologías que utiliza el proyecto
 

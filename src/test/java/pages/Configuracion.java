@@ -27,16 +27,26 @@ public class Configuracion {
 
     //cargamos el archivo .env para usarlo en las pruebas
     static {
-        String nombreArchivo = "datos.env";
-        String ubicacionArchivo = "app/src/test/resources";
-        dotenv = Dotenv.configure().
-                directory(ubicacionArchivo).
-                filename(nombreArchivo).
-                load();
+        try {
+            String nombreArchivo = "datos.env";
+            String ubicacionArchivo = "src/test/resources";
+            dotenv = Dotenv.configure().
+                    directory(ubicacionArchivo).
+                    filename(nombreArchivo).
+                    load();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            dotenv = null;
+        }
+
     }
 
     //creamos una función para obtener datos del archivo .env
     public static String obtenerDato(String dato) {
-        return dotenv.get(dato);
+        if (dotenv == null) {
+            System.err.println("El archivo .env no está cargado");
+            return null;
+        }
+        return null;
     }
 }
