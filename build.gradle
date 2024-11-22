@@ -31,6 +31,9 @@ dependencies {
 
     // https://mvnrepository.com/artifact/io.cucumber/cucumber-java
     implementation 'io.cucumber:cucumber-java:7.19.0'
+
+    // https://mvnrepository.com/artifact/io.github.cdimascio/dotenv-java
+    implementation 'io.github.cdimascio:dotenv-java:3.0.2'
 }
 
 // Apply a specific Java toolchain to ease working on different environments.

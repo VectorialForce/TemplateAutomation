@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,13 +19,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BasePage {
-    protected static WebDriver driver;
-    WebDriverWait wait;
+public class BasePage extends Configuracion {
 
     public BasePage(WebDriver driver) {
-        this.wait = new WebDriverWait(BasePage.driver, Duration.ofSeconds(5L));
-        BasePage.driver = driver;
+        super(driver);
     }
 
     public static void closeBrowser() {
@@ -78,8 +76,7 @@ public class BasePage {
         return values;
     }
 
-    static {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+    public void desplazarAlFinal() {
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight);");
     }
 }
