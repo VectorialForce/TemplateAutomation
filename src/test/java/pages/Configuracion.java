@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
 import java.time.Duration;
 
 public class Configuracion {
@@ -30,10 +31,17 @@ public class Configuracion {
         try {
             String nombreArchivo = "datos.env";
             String ubicacionArchivo = "src/test/resources";
-            dotenv = Dotenv.configure().
-                    directory(ubicacionArchivo).
-                    filename(nombreArchivo).
-                    load();
+
+            File archivo = new File(nombreArchivo, ubicacionArchivo);
+
+            if(!archivo.exists()){
+                System.err.println("El archivo no se encuentra en la ruta" + archivo.getAbsolutePath());
+            } else {
+                dotenv = Dotenv.configure().
+                        directory(ubicacionArchivo).
+                        filename(nombreArchivo).
+                        load();
+            }
         } catch (Exception e) {
             System.err.println(e.getMessage());
             dotenv = null;
